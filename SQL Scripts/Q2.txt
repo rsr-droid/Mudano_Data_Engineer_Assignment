@@ -1,2 +1,0 @@
-SELECT countryname FROM gdp_data
-WHERE incomegroup = 'Low income'
