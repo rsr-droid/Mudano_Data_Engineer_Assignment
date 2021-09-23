@@ -1,0 +1,13 @@
+WITH Rank_table 
+AS
+( 
+	SELECT 
+		region, 
+		countryname,
+		gdp2017,
+		RANK() OVER (PARTITION BY region ORDER BY gdp2017 ASC) Ranks
+	FROM 
+		gdp_data )
+		
+SELECT * FROM Rank_table
+WHERE Ranks <= 3

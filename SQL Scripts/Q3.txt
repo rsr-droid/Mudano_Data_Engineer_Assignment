@@ -1,0 +1,6 @@
+SELECT region, count(*) FROM gdp_data
+WHERE incomegroup = 'High income'
+GROUP BY
+region
+ORDER BY
+count(*) DESC

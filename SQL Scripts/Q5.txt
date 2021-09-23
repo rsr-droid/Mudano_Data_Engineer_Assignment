@@ -1,0 +1,7 @@
+SELECT countryname, 
+	   round((gdp2018-gdp2017)/gdp2017, 4) *100 as gdp_per_change_17_18,
+	   round((gdp2019-gdp2018)/gdp2018, 4) *100 as gdp_per_change_18_19,
+	   round((gdp2020-gdp2019)/gdp2019, 4) *100 as gdp_per_change_19_20
+FROM gdp_data
+
+

@@ -1,0 +1,6 @@
+SELECT region, countryname, COALESCE(gdp2017,0) as gdp,
+  SUM(COALESCE(gdp2017,0))
+  OVER (PARTITION BY region ORDER BY gdp2017)
+  AS cumulative_gdp
+FROM gdp_data
+
