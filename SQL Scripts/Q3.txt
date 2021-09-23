@@ -1,0 +1,20 @@
+SELECT t1.region, t1.High, t2.cnt,
+		CAST(t1.High AS FLOAT)/CAST(t2.cnt AS FLOAT) * 100 AS perc_proportion
+FROM
+
+(SELECT region, count(*) AS High FROM gdp_data
+WHERE incomegroup = 'High income'
+GROUP BY
+region
+ORDER BY
+region) AS t1
+
+INNER JOIN
+
+(SELECT count(*) AS cnt, region
+FROM gdp_data
+GROUP BY region
+ORDER BY region) AS t2
+
+ON t1.region = t2.region
+ORDER BY perc_proportion DESC
